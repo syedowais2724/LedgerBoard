@@ -40,7 +40,7 @@ app.add_exception_handler(CustomHTTPException, custom_http_exception_handler)
 app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.add_exception_handler(Exception, general_exception_handler)
 
-@app.post("/transaction", response_model=TransactionResponse)
+@app.post("/api/transaction", response_model=TransactionResponse)
 def create_transaction(transaction: Transaction):
     logger.info(f"Received transaction: ID={transaction.transaction_id}, User={transaction.user_id}, Amount={transaction.amount}")
     
@@ -61,7 +61,7 @@ def create_transaction(transaction: Transaction):
         timestamp=transaction.timestamp
     )
 
-@app.get("/summary/{user_id}", response_model=UserSummary)
+@app.get("/api/summary/{user_id}", response_model=UserSummary)
 def get_summary(user_id: str):
     logger.info(f"Fetching summary for user: {user_id}")
     summary = get_user_summary(user_id)
@@ -73,7 +73,7 @@ def get_summary(user_id: str):
         )
     return summary
 
-@app.get("/ranking", response_model=List[RankingItem])
+@app.get("/api/ranking", response_model=List[RankingItem])
 def get_ranking():
     logger.info("Fetching ranking leaderboard")
     return calculate_rankings()
