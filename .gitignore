@@ -1,0 +1,21 @@
+# Python cache & build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+env/
+venv/
+ENV/
+
+# Node dependencies & builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# System/IDE configs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
