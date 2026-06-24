@@ -1,3 +1,8 @@
+import sys
+import os
+# Add the current directory to sys.path to resolve local imports on Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
